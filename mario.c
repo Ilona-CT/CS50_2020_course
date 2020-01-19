@@ -10,7 +10,7 @@ int main(void)
     // making a pyramid
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < 2*n + 2; j++) 
+        for (int j = 0; j < 2 * n + 2; j++) 
         {
             //reverse pyramid right alined
             if (j < n - i - 1 || j == n || j == n + 1)
