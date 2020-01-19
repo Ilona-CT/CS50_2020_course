@@ -7,10 +7,6 @@ int main(void)
 {
     //getting height from 
     int n = get_positive_int("Height: ");
-    if (n < 8 && n > 1)
-    {
-        printf("Stored: %i\n", n);
-    }
     // making a pyramid
     for (int i = 0; i < n; i++)
     {
