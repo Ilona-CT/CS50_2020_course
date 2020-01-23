@@ -8,7 +8,7 @@ int main(void)
     float change;
     do
     {
-       change = get_float("Change owed: ");
+        change = get_float("Change owed: ");
     }
     while (change < 0.00);
     // round up to hundreds in one transaction
