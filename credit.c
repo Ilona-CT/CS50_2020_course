@@ -26,7 +26,7 @@ int main(void)
     else
     {
         //diminish number by 10 until it is 2 digits long
-        k = l;
+        k = l / 1000000000000;
         do
         {
             k /= 10;
