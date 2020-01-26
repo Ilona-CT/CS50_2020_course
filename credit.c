@@ -13,13 +13,20 @@ int main(void)
     {
         l = get_long("Number: ");
     }
-    while (l < 999999999999 || ((9999999999999 < l) && (l < 100000000000000)) || l > 9999999999999999);
+    while (l < 0);
     
-    if (((int)luhns % 2) == 0)
+    if (((int)luhns % 2) != 0)
     {
-        // get lower number to work on by dividing 10^12
-        k = l / 100000000000; 
+        printf("INVALID\n");
+    }
+    else if (l < 999999999999 || ((9999999999999 < l) && (l < 100000000000000)) || l > 9999999999999999)
+    {
+        printf("INVALID\n");
+    }
+    else
+    {
         //diminish number by 10 until it is 2 digits long
+        k = l;
         do
         {
             k /= 10;
@@ -27,17 +34,17 @@ int main(void)
         while (k > 99);
 
         // if first to numbers are 34 or 37 it is AMEX
-        if (k == 34 || k == 37)
+        if ((k == 34 || k == 37) && (99999999999999 < l && l < 1000000000000000))
         {
             printf("AMEX\n");
         }
         // if first to numbers are either of: 51, 52, 53, 54, 55, 55 it is MasterCard
-        else if (k > 50 && k < 56)
+        else if ((k > 50 && k < 56) && (999999999999999 < l && l < 10000000000000000))
         {
             printf("MASTERCARD\n");
         }
         // if first number starts with digit 4 it is Visa
-        else if (k > 39 && k < 50)
+        else if ((k > 39 && k < 50) && ((999999999999999 < l && l < 10000000000000000) || (999999999999 < l && l < 10000000000000)))
         {
             printf("VISA\n");
         }
@@ -47,13 +54,7 @@ int main(void)
             printf("INVALID\n");
         }
     }
-    // CC is invalid if modulo of luhns number is different than 0
-    else
-    {
-        printf("INVALID\n");
-    }
 }
-
 //calculating luhns number
 int luhns(long l)
 {    
