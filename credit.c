@@ -41,7 +41,6 @@ int main(void)
         sumd += d;
     }
     luhns = sumb + sumd;
-    printf("%i\n", luhns);
     
     // if the number is not 13 or 15 or 16 digits long print invalid
     if (l < 999999999999 || ((9999999999999 < l) && (l < 100000000000000)) || l > 9999999999999999)
