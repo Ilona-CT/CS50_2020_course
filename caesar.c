@@ -45,13 +45,11 @@ char cipher(int k)
     int n = strlen(p);
     // ciphertext
     printf("ciphertext: ");
-    char c[n];
     for(int i = 0; i < n; i++)
     {
         if(isalpha(p[i]))
         {
-            c[i] = p[i] + k % 26;
-            printf("%c", c[i]);
+            printf("%c", p[i] + k % 26);
         }
         else
         {
