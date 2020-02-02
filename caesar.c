@@ -42,14 +42,42 @@ char cipher(int k)
 {
     // plaintext
     string p = get_string("plaintext: ");
+    // c char when number calculated is between 97 - 122 or 65 - 90
+    // d char when number calculated is greater than or 122
+    // e char when number calculated is greater than or 122
+    char c, d, e;
     int n = strlen(p);
     // ciphertext
     printf("ciphertext: ");
     for(int i = 0; i < n; i++)
     {
+        c = p[i] + k % 26;
         if(isalpha(p[i]))
         {
-            printf("%c", p[i] + k % 26);
+            if(p[i] > 96 && p[i] < 123)
+            {
+                d = 'a' - 1 + (c - 'z');
+                if (c < 123)
+                {
+                    printf("%c", c);
+                }
+                else
+                {
+                    printf("%c", d);
+                }
+            }
+            else
+            {
+                e = 'A' - 1 + (c - 'Z');
+                if (c < 91)
+                {
+                    printf("%c", c);
+                }
+                else
+                {
+                    printf("%c", e);
+                }
+            }
         }
         else
         {
