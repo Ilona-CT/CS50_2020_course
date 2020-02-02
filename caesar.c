@@ -43,19 +43,19 @@ char cipher(int k)
     // plaintext
     string p = get_string("plaintext: ");
     // c char when number calculated is between 97 - 122 or 65 - 90
-    // d char when number calculated is greater than or 122
-    // e char when number calculated is greater than or 122
+    // d char when number calculated is greater than 122
+    // e char when number calculated is greater than 90
     int c;
     char d, e;
     int n = strlen(p);
     // ciphertext
     printf("ciphertext: ");
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         c = p[i] + k % 26;
-        if(isalpha(p[i]))
+        if (isalpha(p[i]))
         {
-            if(p[i] > 96 && p[i] < 123)
+            if (p[i] > 96 && p[i] < 123)
             {
                 d = 'a' - 1 + (c - 'z');
                 if (c < 123)
