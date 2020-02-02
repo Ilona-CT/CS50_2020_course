@@ -45,7 +45,8 @@ char cipher(int k)
     // c char when number calculated is between 97 - 122 or 65 - 90
     // d char when number calculated is greater than or 122
     // e char when number calculated is greater than or 122
-    char c, d, e;
+    int c;
+    char d, e;
     int n = strlen(p);
     // ciphertext
     printf("ciphertext: ");
