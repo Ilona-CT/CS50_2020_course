@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 // Max number of candidates
 #define MAX 9
@@ -80,57 +81,34 @@ bool vote(string name)
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    // make variable where we will store the winner
-    string winner;
-    // if only 1 candidate then print out his name as a winner
+    int highest_vote_number;
+
+    // If only 1 candidate then print out his name as a winner
     if (candidate_count == 1)
     {
         printf("%s\n", candidates[0].name);
     }
 
-    // if more than 1 candidate then compare who has more votes
+    // Get highest number of scores
     for (int i = 0; i < candidate_count - 1; i++)
     {
         for (int j = i + 1; j < candidate_count; j++)
         {
             if (candidates[i].votes > candidates[j].votes)
             {
-                // Assign winner with the highest number
-                winner = candidates[i].name;
-                if (i == candidate_count - 2)
-                {
-                    printf("%s\n", winner);
-                    // Check if there are no candidates with same number of votes
-                    for (j = 0; j < candidate_count; j++)
-                    {
-                        // Omit comparing to the winner already picked
-                        if (j == i)
-                        {
-                            return;
-                        }
-
-                        // If there is a winner with same number of votes - print him
-                        if (candidates[i].votes == candidates[j].votes)
-                        {
-                            printf("%s\n", candidates[j].name);
-                        }
-                    }
-                }
-
+                // Get highest number of votes
+                highest_vote_number = candidates[i].votes;
             }
-            // Print all if there is a draw
-            else if (candidates[i].votes == candidates[j].votes)
-            {
-                if (i == candidate_count - 2)
-                {
-                    for (i = 0; i < candidate_count; i++)
-                    {
-                        printf("%s\n", candidates[i].name);
-                    }
-                }
-            }
+        }
+    }
+
+    // print out all names who's votes match highest score
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes == highest_vote_number)
+        {
+            printf("%s\n", candidates[i].name);
         }
     }
     return;
 }
-
