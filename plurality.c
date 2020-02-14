@@ -81,7 +81,7 @@ bool vote(string name)
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    int highest_vote_number;
+    int highest_vote_number = 0;
 
     // If only 1 candidate then print out his name as a winner
     if (candidate_count == 1)
