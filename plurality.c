@@ -99,6 +99,11 @@ void print_winner(void)
                 // Get highest number of votes
                 highest_vote_number = candidates[i].votes;
             }
+            else if (candidates[i].votes == candidates[j].votes)
+            {
+                // Get highest number of votes
+                highest_vote_number = candidates[i].votes;
+            }
         }
     }
 
