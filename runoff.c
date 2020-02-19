@@ -182,7 +182,7 @@ bool print_winner(void)
 int find_min(void)
 {
     // Keep track of lowest current vote number
-    int lowest_vote_number = candidate_count;
+    int lowest_vote_number = voter_count;
     for (int i = 0; i < candidate_count; i++)
     {
         // Omit this candidate if already eliminated
