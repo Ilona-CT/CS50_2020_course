@@ -204,9 +204,21 @@ bool is_tie(int min)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (i == candidate_count - 1)
+        if (candidates[i].eliminated == true)
         {
-            return true;
+            break;
+        }
+
+        if (candidates[i].votes != min)
+        {
+            break;
+        }
+        else
+        {
+            if (i == candidate_count - 1)
+            {
+                return true;
+            }
         }
     }
     return false;
