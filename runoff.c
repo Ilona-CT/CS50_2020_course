@@ -164,11 +164,6 @@ bool print_winner(void)
     int n = candidate_count / 2;
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].eliminated == true)
-        {
-            break;
-        }
-
         if (candidates[i].votes > n)
         {
             printf("%s\n", candidates[i].name);
