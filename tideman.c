@@ -105,10 +105,7 @@ bool vote(int rank, string name, int ranks[])
         if (strcmp(name, candidates[i]) == 0)
         {
             ranks[rank] = i;
-            if (i == candidate_count - 1)
-            {
-                return true;
-            }
+            return true;
         }
     }
     return false;
@@ -187,7 +184,7 @@ void lock_pairs(void)
             {
                 if (pairs[i].loser == pairs[j].winner)
                 {
-                    locked[pairs[i].winner][pairs[i].loser] = false;
+                    break;
                 }
             }
         }
