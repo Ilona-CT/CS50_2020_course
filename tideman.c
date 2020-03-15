@@ -200,18 +200,12 @@ void print_winner(void)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            if (i == j)
+            if (locked[j][i] == false)
             {
-                break;
-            }
-            else
-            {
-                if (locked[j][i] == false)
+                if (j == candidate_count - 1)
                 {
-                    if (j == candidate_count)
-                    {
-                        printf("%s\n", candidates[j]);
-                    }
+                    printf("%s\n", candidates[j]);
+                    return;
                 }
             }
         }
