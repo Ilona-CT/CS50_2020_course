@@ -200,11 +200,7 @@ void print_winner(void)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            if (locked[j][i] == true)
-            {
-                return;
-            }
-            else
+            if (locked[j][i] == false)
             {
                 if (j == candidate_count - 1)
                 {
