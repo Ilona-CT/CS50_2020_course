@@ -202,7 +202,7 @@ void print_winner(void)
         {
             if (locked[j][i] == true)
             {
-                break;
+                return;
             }
             else
             {
