@@ -137,11 +137,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         {
             counter = 0;
             sumRed = 0;
-            averageRed = 0;
+            averageRed = 0.0;
             sumGreen = 0;
-            averageGreen = 0;
+            averageGreen = 0.0;
             sumBlue = 0;
-            averageBlue = 0;
+            averageBlue = 0.0;
             // Taking average with omitting cells less than 0 or greater than width/height
             for (int k = i - 1; k < i + 2; k++)
             {
