@@ -6,12 +6,12 @@
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
-    int average;
+    float average;
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            average = round((image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue) / 3);
+            average = round((image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue) / 3.0);
             image[i][j].rgbtRed = average;
             image[i][j].rgbtGreen = average;
             image[i][j].rgbtBlue = average;
@@ -23,16 +23,16 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 // Convert image to sepia
 void sepia(int height, int width, RGBTRIPLE image[height][width])
 {
-    int sepiaRed;
-    int sepiaGreen;
-    int sepiaBlue;
+    float sepiaRed;
+    float sepiaGreen;
+    float sepiaBlue;
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            sepiaRed = 0.393 * image[i][j].rgbtRed + 0.769 * image[i][j].rgbtGreen + 0.189 * image[i][j].rgbtBlue;
-            sepiaGreen = 0.349 * image[i][j].rgbtRed + 0.686 * image[i][j].rgbtGreen + 0.168 * image[i][j].rgbtBlue;
-            sepiaBlue = 0.272 * image[i][j].rgbtRed + 0.534 * image[i][j].rgbtGreen + 0.131 * image[i][j].rgbtBlue;
+            sepiaRed = round(0.393 * image[i][j].rgbtRed + 0.769 * image[i][j].rgbtGreen + 0.189 * image[i][j].rgbtBlue);
+            sepiaGreen = round(0.349 * image[i][j].rgbtRed + 0.686 * image[i][j].rgbtGreen + 0.168 * image[i][j].rgbtBlue);
+            sepiaBlue = round(0.272 * image[i][j].rgbtRed + 0.534 * image[i][j].rgbtGreen + 0.131 * image[i][j].rgbtBlue);
 
             if (sepiaRed > 255)
             {
@@ -128,9 +128,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     int sumGreen;
     int sumBlue;
     int counter;
-    int averageRed;
-    int averageGreen;
-    int averageBlue;
+    float averageRed;
+    float averageGreen;
+    float averageBlue;
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
