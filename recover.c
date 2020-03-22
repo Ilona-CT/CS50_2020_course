@@ -44,16 +44,19 @@ int main(int argc, char *argv[])
     // Create a file for a photo
     FILE *photo = NULL;
 
-    // Start looping through the file until we look through all the blocks
+    // Start looping through the file until it ends
     while (fread(block, BLOCK_SIZE, 1, file) == 1)
     {
         // Create a bool value for photo begining
-        bool found_photo = block[0] == 0xff && block[1] == 0xd8 && block[1] == 0xff && (block[3] & 0xf0) == 0xe0;
+        bool found_photo = block[0] == 0xff && block[1] == 0xd8 && block[2] == 0xff && (block[3] & 0xf0) == 0xe0;
 
         // When new photo is found -> close current file and name, increase found photo no and open new file at its name
         if (found_photo == true)
         {
-            fclose(photo);
+            if (photo_counter > 0)
+            {
+                fclose(photo);
+            }
             photo_counter++;
             // Escape with success when already 50 photos found
             if (photo_counter == 50)
