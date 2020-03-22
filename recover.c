@@ -66,16 +66,10 @@ int main(int argc, char *argv[])
             sprintf(photo_name, "%03i.jpg", photo_counter);
             photo = fopen(photo_name, "w");
             photo_counter++;
-            // Escape loop if new photo file could not be opened
-            if (!photo)
-            {
-                printf("Cannot open new photo file");
-                return 1;
-            }
         }
 
         // When new file is opened correctly we can safely write into it
-        if (found_photo == true)
+        if (photo != NULL)
         {
             fwrite(&block, BLOCK_SIZE, 1, photo);
         }
