@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     }
 
     // Accept only given name of forensic's image
-    if (strcmp(argv[1],"card.raw") != 0)
+    if (strcmp(argv[1], "card.raw") != 0)
     {
         printf("Forensic's image name incorrect");
         return 1;
