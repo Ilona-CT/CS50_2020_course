@@ -57,7 +57,6 @@ int main(int argc, char *argv[])
             {
                 fclose(photo);
             }
-            photo_counter++;
             // Escape with success when already 50 photos found
             if (photo_counter == 50)
             {
@@ -66,6 +65,7 @@ int main(int argc, char *argv[])
             }
             sprintf(photo_name, "%03i.jpg", photo_counter);
             photo = fopen(photo_name, "w");
+            photo_counter++;
             // Escape loop if new photo file could not be opened
             if (!photo)
             {
