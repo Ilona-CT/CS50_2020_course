@@ -5,6 +5,7 @@
 #include <string.h>
 #include <strings.h>
 #include <stdio.h>
+#include <ctype.h>
 
 #include "dictionary.h"
 #define MULTIPLIER (37)
@@ -29,14 +30,23 @@ unsigned int word_count;
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    int h = hash(word);
+    // Convert whole word to lowercase
+    char *low_word = malloc(sizeof(word));
+    for(int i = 0, j = strlen(word); i < j + 1; i++)
+    {
+        low_word[i] = tolower(word[i]);
+    }
+
+    int h = hash(low_word);
     for (node *tmp = table[h]; tmp != NULL; tmp = tmp->next)
     {
         if (strcasecmp(word, tmp->word) == 0)
         {
+            free(low_word);
             return true;
         }
     }
+    free(low_word);
     return false;
 }
 
