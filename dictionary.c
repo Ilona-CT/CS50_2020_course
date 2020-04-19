@@ -55,7 +55,7 @@ unsigned int hash(const char *word)
     // Hashtable copied from https://www.reddit.com/r/cs50/comments/1x6vc8/pset6_trie_vs_hashtable/
     // Also inspired by http://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)HashTables.html
     unsigned int hash = 0;
-    for (int i=0, n=strlen(word); i<n; i++)
+    for (int i = 0, n = strlen(word); i < n; i++)
         hash = (hash << 2) ^ word[i];
     return hash % N;
 }
