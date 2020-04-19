@@ -30,12 +30,14 @@ unsigned int word_count;
 bool check(const char *word)
 {
     int h = hash(word);
-    for (node *tmp = table[h]; tmp != NULL; tmp = tmp->next)
+    node *tmp = table[h];
+    while (tmp->next != NULL)
     {
         if (strcasecmp(word, tmp->word) == 0)
         {
             return true;
         }
+        tmp = tmp->next;
     }
     return false;
 }
@@ -43,6 +45,8 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
+    // Hashtable copied from https://www.reddit.com/r/cs50/comments/1x6vc8/pset6_trie_vs_hashtable/
+    // Also inspired by http://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)HashTables.html
     unsigned int hash = 0;
     for (int i=0, n=strlen(word); i<n; i++)
         hash = (hash << 2) ^ word[i];
