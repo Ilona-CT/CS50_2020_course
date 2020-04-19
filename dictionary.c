@@ -75,17 +75,8 @@ bool load(const char *dictionary)
         // Hash each word
         h = hash(word);
         // Paste node into Hash Table
-        if (!table[h])
-        {
-            n->next = table[h];
-            table[h] = n;
-        }
-        else
-        {
-            table[h] = n;
-            n->next = NULL;
-        }
-
+        n->next = table[h];
+        table[h] = n;
         // Count the words loaded into dictionary
         word_count++;
     }
