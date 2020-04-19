@@ -33,7 +33,7 @@ bool check(const char *word)
     // Convert whole word to lowercase
     int j = strlen(word);
     char low_word[j];
-    for(int i = 0; i < j + 1; i++)
+    for (int i = 0; i < j + 1; i++)
     {
         low_word[i] = tolower(word[i]);
     }
@@ -56,7 +56,9 @@ unsigned int hash(const char *word)
     // Also inspired by http://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)HashTables.html
     unsigned int hash = 0;
     for (int i = 0, n = strlen(word); i < n; i++)
+    {
         hash = (hash << 2) ^ word[i];
+    }
     return hash % N;
 }
 
@@ -106,7 +108,7 @@ bool unload(void)
 {
     node *cursor = NULL;
     node *tmp = NULL;
-    for(int h = 0; h < N; h++)
+    for (int h = 0; h < N; h++)
     {
         cursor = table[h];
         while (cursor != NULL)
