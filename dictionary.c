@@ -30,14 +30,12 @@ unsigned int word_count;
 bool check(const char *word)
 {
     int h = hash(word);
-    node *tmp = table[h];
-    while (tmp->next != NULL)
+    for (node *tmp = table[h]; tmp != NULL; tmp = tmp->next)
     {
         if (strcasecmp(word, tmp->word) == 0)
         {
             return true;
         }
-        tmp = tmp->next;
     }
     return false;
 }
