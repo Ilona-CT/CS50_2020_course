@@ -56,9 +56,7 @@ unsigned int hash(const char *word)
     // Also inspired by http://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)HashTables.html
     unsigned int hash = 0;
     for (int i = 0, n = strlen(word); i < n; i++)
-    {
         hash = (hash << 2) ^ word[i];
-    }
     return hash % N;
 }
 
