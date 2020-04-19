@@ -38,14 +38,15 @@ bool check(const char *word)
     }
 
     int h = hash(low_word);
-    free(low_word);
     for (node *tmp = table[h]; tmp != NULL; tmp = tmp->next)
     {
         if (strcasecmp(word, tmp->word) == 0)
         {
+            free(low_word);
             return true;
         }
     }
+    free(low_word);
     return false;
 }
 
