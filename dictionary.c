@@ -32,7 +32,7 @@ bool check(const char *word)
 {
     // Convert whole word to lowercase
     char *low_word = malloc(sizeof(word));
-    for(int i = 0, j = strlen(word); i < j + 1; i++)
+    for(int i = 0, j = strlen(word); i < j; i++)
     {
         low_word[i] = tolower(word[i]);
     }
