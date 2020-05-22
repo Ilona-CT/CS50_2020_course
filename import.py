@@ -29,9 +29,11 @@ with open(argv[1], "r") as characters:
         # Add first, middle and last name
         list = row["name"].split()
         if row["name"].count(" ") == 1:
-            db.execute("INSERT INTO students (first, last, house, birth) VALUES (?, ?, ?, ?)", [list[0], list[1], row["house"], row["birth"]])
+            db.execute("INSERT INTO students (first, last, house, birth) VALUES (?, ?, ?, ?)",
+                       [list[0], list[1], row["house"], row["birth"]])
         else:
-            db.execute("INSERT INTO students (first, middle, last, house, birth) VALUES (?, ?, ?, ?, ?)", [list[0], list[1], list[2], row["house"], row["birth"]])
+            db.execute("INSERT INTO students (first, middle, last, house, birth) VALUES (?, ?, ?, ?, ?)",
+                       [list[0], list[1], list[2], row["house"], row["birth"]])
 
 # Save (comit) changes
 conn.commit()
