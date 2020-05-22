@@ -25,8 +25,5 @@ for row in db:
         print(row[0], row[2], end=',')
     print(" born", row[3])
 
-# Drop the table
-db.execute("DROP TABLE students")
-
 # Close the connection
 conn.close()
