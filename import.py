@@ -15,7 +15,7 @@ conn = sqlite3.connect("students.db")
 db = conn.cursor()
 
 # Create a table within database
-db.execute("CREATE TABLE students (first VARCHAR[255], middle VARCHAR[255], last VARCHAR[255], house VARCHAR[10], birth INT)")
+db.execute("CREATE TABLE students (id INTEGER PRIMARY KEY AUTOINCREMENT, first VARCHAR(255), middle VARCHAR(255), last VARCHAR(255), house VARCHAR(10), birth INTEGER)")
 
 # Open CSV file
 with open(argv[1], "r") as characters:
