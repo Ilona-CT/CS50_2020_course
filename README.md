@@ -1,3 +1,3 @@
 # CS50_2020_course
 
-credit.c - checks whether a cc is valid using Luhn's Algorithm and then prints out whether it is AMEX, MASTERCARD, VISA or INVALID. Using longs as not introduced to arrays just yet.
+credit.c - checks whether a cc is valid using Luhn's Algorithm and then prints out whether it is AMEX, MASTERCARD, VISA or INVALID. Using longs as not introduced to arrays just yet. Full description at https://cs50.harvard.edu/x/2020/psets/1/credit/.
